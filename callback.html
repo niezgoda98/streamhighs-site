@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>StreamHighs – login callback</title>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6;color:#222}h1{font-size:1.8em}a{color:#0a58ca}nav a{margin-right:16px}code{background:#f3f3f3;padding:2px 6px;border-radius:4px}</style></head><body>
+<nav><a href="index.html">StreamHighs</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></nav>
+<h1>Login callback</h1>
+<p id="msg">Reading…</p>
+<p>Copy the code below and paste it into the terminal window where <code>poster.py login</code> is waiting:</p>
+<pre id="code" style="background:#f3f3f3;padding:12px;border-radius:6px;word-break:break-all;white-space:pre-wrap"></pre>
+<button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent)">Copy</button>
+<script>
+const p=new URLSearchParams(location.search);
+const code=p.get('code'), err=p.get('error')||p.get('error_description');
+if(code){document.getElementById('msg').textContent='Authorization succeeded.';document.getElementById('code').textContent=location.search.slice(1);}
+else{document.getElementById('msg').textContent='No code in the URL. '+(err||'');}
+</script>
+</body></html>
